@@ -2,6 +2,7 @@
 import clsx from 'clsx'
 import gsap from 'gsap'
 import styles from './index.module.scss'
+import type { CSSProperties } from 'react';
 
 // Hooks
 import { useGSAP } from '@gsap/react'
