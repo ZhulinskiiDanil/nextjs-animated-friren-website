@@ -1,0 +1,107 @@
+$one: calc(5vw + 1vh);
+
+.container {
+  $x1: calc(min(var(--x, 0), .5) * 2 - 1);
+  $x2: calc((max(var(--x, 0), .5) - .5) * 2);
+  $y: var(--y);
+
+  // .5
+
+  z-index: 0;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  // Shadow
+  &::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      #3D2727,
+      transparent,
+      #3D2727
+    );
+  }
+
+  .images {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+    width: 120%;
+    height: 100%;
+
+    &:has(.image:hover) .image:not(:hover) {
+      filter: grayscale(100%) !important;
+    }
+
+    .image {
+      $movement: 8%;
+      $image1X: calc($movement * $x1 + $movement / 2);
+      $image2X: calc($movement * $x2 + $movement / 2);
+
+      position: relative;
+      height: calc(100% + $one * 2);
+      width: 100%;
+      overflow: hidden;
+      transform: skewX(-5deg);
+      top: calc($one * $y - $one * 2);
+      transition: 1s cubic-bezier(.17,.67,.52,.91);
+
+      &:focus {
+        width: 200%;
+      }
+
+      img {
+        transition: 3s cubic-bezier(.17,.67,.52,.91);
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &:first-child {
+        img {
+          object-position: calc(30% - $image1X) center;
+        }
+      }
+
+      &:nth-child(2) {
+        z-index: 1;
+        flex-shrink: 0;
+        width: 0; // gsap set to 25%
+        box-shadow: 0 0 calc($one * 2) 0 rgba(0, 0, 0, .5);
+        border: calc($one * .1) solid #FFD1DC;
+        cursor: pointer;
+
+        &:focus {
+          width: 50% !important;
+          transition: 2s ease;
+          cursor: default;
+        }
+      }
+
+      &:last-child {
+        img {
+          object-position: calc(75% - $image2X) center;
+        }
+      }
+    }
+  }
+}
