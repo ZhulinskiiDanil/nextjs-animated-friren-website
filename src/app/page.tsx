@@ -11,6 +11,7 @@ import { Friren } from "./components/Landing/Friren";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/all";
 import { useEffect } from "react";
+import { EpisodesList } from "./components/Landing/EpisodesList";
 
 export default function Landing() {
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function Landing() {
       <Decor />
       <Friren />
       <AnimeName />
+      <EpisodesList className={styles.episodes} />
       <BackgroundIllustration />
     </main>
   );

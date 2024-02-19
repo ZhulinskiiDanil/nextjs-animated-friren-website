@@ -1,0 +1,52 @@
+.episodes {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3.5rem;
+  gap: 1rem;
+
+  position: relative;
+  border-radius: 2rem 2rem 0 0;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, .01),
+    rgba(255, 255, 255, 0.06)
+  );
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    color: #fff;
+    font-size: 2rem;
+    font-stretch: 150%;
+    font-weight: 700;
+
+    span {
+      flex-shrink: 0;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: .25rem;
+      background: #FFDBE4;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: .25rem;
+
+    overflow: auto;
+  }
+}

@@ -11,11 +11,14 @@
   list-style-type: none;
 
   &::-webkit-scrollbar {
-    background: #262a30;
+    width: .4rem;
+    height: .4rem;
+    background: #ddaaa5;
+    border-radius: 999rem;
   }
   
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 20, 105, 0.25);
+    background: #ffdbe4;
     border-radius: 999rem;
     // border-radius: 999rem;
     // transition: .15s ease;
