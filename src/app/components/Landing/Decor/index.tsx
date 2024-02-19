@@ -25,15 +25,19 @@ export function Decor() {
 
         tl.fromTo(rectangles, {
           opacity: 0,
-          left: 'random(-50, 50)',
-          top: 'random(-50, 50)'
+          left: 'random(-100, 100)',
+          top: 'random(-100, 100)',
+          scale: 0,
+          rotateZ: 'random(-10deg, 10deg)'
         }, {
           opacity: 1,
           left: 0,
           top: 0,
+          scale: 1,
+          rotateZ: '-30deg',
           ease: "power3.inOut",
-          duration: 1,
-          stagger: { amount: 2, from: 'random' }
+          duration: 3,
+          stagger: { amount: 1, from: 'random' }
         }, '<')
       })
     }
@@ -57,6 +61,10 @@ export function Decor() {
       '--x': number, '--y': number,
     }}
   >
+    <div className={styles.triangles}>
+      <div className={styles.triangle}></div>
+      <div className={styles.triangle}></div>
+    </div>
     <div className={styles.cw}>
       <div
         data-rectangles

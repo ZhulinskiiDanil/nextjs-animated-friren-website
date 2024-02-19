@@ -43,8 +43,7 @@ export function BackgroundIllustration() {
         <Image
           src="/images/friren_bg.png"
           alt="Picture of the author"
-          objectFit='cover'
-          quality={100}
+          priority
           fill
         />
       </div>
@@ -65,8 +64,7 @@ export function BackgroundIllustration() {
         <Image
           src="/images/fern_bg.png"
           alt="Picture of the author"
-          objectFit='cover'
-          quality={100}
+          priority
           fill
         />
       </div>

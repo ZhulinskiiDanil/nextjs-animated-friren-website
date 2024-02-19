@@ -28,31 +28,71 @@ $one: calc(5vw + 1vh);
     padding: 0 $one;
     margin: 0 auto;
     transition: 2s cubic-bezier(.17,.67,.52,.91);
+  }
 
-    .rectangles {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: calc($one * .2);
-  
-      &.right {
-        left: unset;
-        right: 0;
-        transform: rotateY(-180deg);
+  .triangles {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .triangle {
+      position: absolute;
+
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 0 solid transparent;
+        transform: translate3d(-50%, 0, 0);
+        border-top-color: rgba(255, 255, 255, .05);
       }
-  
-      .rectangle {
-        position: relative;
-        width: calc($one * .5);
-        transform: skewY(-30deg);
-        border: calc($one * .08) solid #FFD1DC;
-        box-shadow: 0 0 2rem 0 rgba(255, 209, 220, 0.2);
-        aspect-ratio: 1 / 2;
-  
-        &:nth-child(3n) {
-          aspect-ratio: 1 / 3.5;
-          border-color: #80696e;
-        }
+
+      &::after {
+        border-width: 235px;
+      }
+
+      &::before {
+        border-width: 306px;
+      }
+
+      &:first-child {
+        left: 0;
+      }
+
+      &:last-child {
+        left: 100%;
+      }
+    }
+  }
+
+  .rectangles {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &.right {
+      left: unset;
+      right: 0;
+      transform: rotateY(-180deg);
+    }
+
+    .rectangle {
+      flex-shrink: 0;
+      position: relative;
+      width: 2rem;
+      transform: skewY(-30deg);
+      border: .2rem solid #FFD1DC;
+      box-shadow: 0 0 2rem 0 rgba(255, 209, 220, 0.2);
+      aspect-ratio: 1 / 2;
+
+      &:nth-child(3n) {
+        aspect-ratio: 1 / 3.5;
+        border-color: #80696e;
       }
     }
   }

@@ -63,6 +63,7 @@ $one: calc(5vw + 1vh);
 
       img {
         transition: 3s cubic-bezier(.17,.67,.52,.91);
+        object-fit: cover;
         user-select: none;
         -webkit-user-drag: none;
       }
