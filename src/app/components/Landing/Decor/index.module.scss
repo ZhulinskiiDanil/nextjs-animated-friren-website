@@ -52,11 +52,13 @@ $one: calc(5vw + 1vh);
       }
 
       &::after {
-        border-width: 235px;
+        border-width: 320px;
+        border-top-width: 180px;
       }
 
       &::before {
-        border-width: 306px;
+        border-width: 420px;
+        border-top-width: 250px;
       }
 
       &:first-child {

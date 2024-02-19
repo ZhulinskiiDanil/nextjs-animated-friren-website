@@ -46,6 +46,13 @@
     flex-direction: column;
     height: 100%;
     gap: .25rem;
+    padding-bottom: 6rem;
+    mask-image: linear-gradient(
+      to top, transparent, #000
+    );
+    -webkit-mask-image: linear-gradient(
+      to top, transparent, #000
+    );
 
     overflow: auto;
   }
