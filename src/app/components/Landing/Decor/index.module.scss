@@ -20,7 +20,7 @@ $one: calc(5vw + 1vh);
     position: relative;
     top: 50%;
     transform: translate3d(
-      calc($power * var(--x) * -1 + $power / 2),
+      calc($power * var(--x) - $power / 2),
       calc(-50% + (40% * var(--y) - 20%)),
       0
     );
