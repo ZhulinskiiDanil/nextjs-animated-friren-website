@@ -12,6 +12,7 @@
   );
   transform-style: preserve-3d;
   perspective: 1000px;
+  pointer-events: none;
 
   .wrapper {
     position: relative;

@@ -5,13 +5,12 @@ $one: calc(5vw + 1vh);
   $x2: calc((max(var(--x, 0), .5) - .5) * 2);
   $y: var(--y);
 
-  // .5
-
   z-index: 0;
   position: relative;
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  background: #000;
 
   // Shadow
   &::after {
@@ -42,6 +41,7 @@ $one: calc(5vw + 1vh);
 
     &:has(.image:hover) .image:not(:hover) {
       filter: grayscale(100%) !important;
+      opacity: .25;
     }
 
     .image {
@@ -56,9 +56,11 @@ $one: calc(5vw + 1vh);
       transform: skewX(-5deg);
       top: calc($one * $y - $one * 2);
       transition: 1s cubic-bezier(.17,.67,.52,.91);
+      cursor: pointer;
 
       &:focus {
         width: 200%;
+        cursor: default;
       }
 
       img {
@@ -89,12 +91,10 @@ $one: calc(5vw + 1vh);
         width: 0; // gsap set to 25%
         box-shadow: 0 0 calc($one * 2) 0 rgba(0, 0, 0, .5);
         border: calc($one * .05) solid #fff;
-        cursor: pointer;
 
         &:focus {
           width: 50% !important;
           transition: 2s ease;
-          cursor: default;
         }
       }
 

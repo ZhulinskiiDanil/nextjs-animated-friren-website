@@ -71,17 +71,22 @@ $one: calc(5vw + 1vh);
     }
   }
 
+  &[data-animation-ended~=true] .rectangles {
+    &:first-child {
+      opacity: var(--x) !important;
+    }
+    
+    &:last-child {
+      opacity: calc(1 - var(--x)) !important;
+    }
+  }
+
   .rectangles {
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: .15s cubic-bezier(.17,.67,.41,.88);
     gap: 2rem;
-
-    &.right {
-      left: unset;
-      right: 0;
-      transform: rotateY(-180deg);
-    }
 
     .rectangle {
       flex-shrink: 0;

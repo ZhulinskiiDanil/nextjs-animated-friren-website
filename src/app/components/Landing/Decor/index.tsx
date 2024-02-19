@@ -3,13 +3,14 @@ import clsx from 'clsx'
 import gsap from 'gsap';
 import styles from './index.module.scss'
 
-import type { CSSProperties } from 'react'
+import { CSSProperties, useState } from 'react'
 
 // Hooks
 import { useGSAP } from '@gsap/react'
 import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 
 export function Decor() {
+  const [animationEnded, setAnimationEnded] = useState(false)
   const [mouse, ref] = useMouse<HTMLDivElement>();
   const windowSize = useWindowSize();
 
@@ -37,7 +38,11 @@ export function Decor() {
           rotateZ: '-30deg',
           ease: "power3.inOut",
           duration: 3,
-          stagger: { amount: 1, from: 'random' }
+          stagger: { amount: 1, from: 'random' },
+
+          onComplete() {
+            setAnimationEnded(true)
+          }
         }, '<')
       })
     }
@@ -54,6 +59,7 @@ export function Decor() {
   return <div
     ref={ref}
     className={styles.decor}
+    data-animation-ended={animationEnded}
     style={{
       '--x': mouse.x / (windowSize.width || 1),
       '--y': mouse.y / (windowSize.height || 1)
@@ -74,7 +80,7 @@ export function Decor() {
       </div>
       <div
         data-rectangles
-        className={clsx(styles.rectangles, styles.right)}
+        className={styles.rectangles}
       >
         { rectanglesList }
       </div>
