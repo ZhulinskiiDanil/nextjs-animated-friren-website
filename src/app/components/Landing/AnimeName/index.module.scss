@@ -1,4 +1,7 @@
 .header {
+  --x: .5;
+  --y: .5;
+
   z-index: 1;
   position: absolute;
   left: 50%;
@@ -13,9 +16,18 @@
   backdrop-filter: blur(24px);
   box-shadow: 0 16px 128px 0 rgba(89, 55, 80, 0.25);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.06) 100%);
+  transform-style: preserve-3d;
+  perspective: 1000px;
   overflow: hidden;
 
   p {
+    position: relative;
+    transform:
+      rotateX(calc(20deg * var(--y) * -1 + 4deg))
+      rotateY(calc(10deg * var(--x) - 5deg))
+      translateZ(1rem)
+    !important;
+
     font-size: 2rem;
     font-weight: 700;
     font-stretch: 150%;
@@ -25,23 +37,43 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     overflow: hidden;
+    transition: 1s cubic-bezier(.17,.67,.5,.88);
   }
 
   .image {
     z-index: -1;
     position: absolute;
     filter: blur(4px);
+    transition: 1s cubic-bezier(.17,.67,.5,.88);
+
+    img {
+      user-select: none;
+      -webkit-user-drag: none;
+    }
 
     &.stick {
       left: 50%;
-      transform: translate3d(calc(-50% - 35rem), -30%, 0);
+      transform:
+        translate3d(
+          calc(-50% - 35rem + 5rem * var(--x) - 3rem),
+          calc(-30% + 5rem * var(--y) - 2rem),
+          0
+        )
+      ;
       height: 1195px;
       width: 1195px;
     }
 
     &.potion {
       left: 50%;
-      transform: translate3d(calc(-50% + 20rem), -40%, 0) rotate(-40deg);
+      transform:
+        translate3d(
+          calc(-50% + 20rem + 5rem * var(--x) - 3rem),
+          calc(-40% + 5rem * var(--y) - 2rem),
+          0
+        )
+        rotate(-40deg)
+      ;
       height: 200px;
       width: 200px;
     }

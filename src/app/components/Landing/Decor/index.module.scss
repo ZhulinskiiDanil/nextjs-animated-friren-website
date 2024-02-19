@@ -1,8 +1,8 @@
 $one: calc(5vw + 1vh);
 
 .decor {
-  --x: 0;
-  --y: 0;
+  --x: .5;
+  --y: .5;
 
   z-index: 1;
   position: absolute;
@@ -21,7 +21,7 @@ $one: calc(5vw + 1vh);
     top: 50%;
     transform: translate3d(
       calc($power * var(--x) - $power / 2),
-      calc(-50% + (40% * var(--y) - 20%)),
+      calc(-50% + (10% * var(--y) - 5%)),
       0
     );
     will-change: transform;
@@ -73,7 +73,7 @@ $one: calc(5vw + 1vh);
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 
     &.right {
       left: unset;
@@ -86,8 +86,7 @@ $one: calc(5vw + 1vh);
       position: relative;
       width: 2rem;
       transform: skewY(-30deg);
-      border: .2rem solid #FFD1DC;
-      box-shadow: 0 0 2rem 0 rgba(255, 209, 220, 0.2);
+      border: .15rem solid #FFD1DC;
       aspect-ratio: 1 / 2;
 
       &:nth-child(3n) {

@@ -20,10 +20,12 @@ export function Friren() {
     gsap.fromTo(ref.current, {
       scale: .95,
       marginTop: 48,
+      filter: 'grayscale(100%)',
       opacity: 0,
     }, {
       scale: 1,
       marginTop: 0,
+      filter: 'grayscale(0%)',
       opacity: 1,
       duration: 2,
       delay: 1

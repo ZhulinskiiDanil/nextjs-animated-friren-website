@@ -88,7 +88,7 @@ $one: calc(5vw + 1vh);
         flex-shrink: 0;
         width: 0; // gsap set to 25%
         box-shadow: 0 0 calc($one * 2) 0 rgba(0, 0, 0, .5);
-        border: calc($one * .1) solid #FFD1DC;
+        border: calc($one * .05) solid #fff;
         cursor: pointer;
 
         &:focus {
