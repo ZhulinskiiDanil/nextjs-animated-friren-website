@@ -1,0 +1,65 @@
+.person {
+  --x: .5;
+  --y: .5;
+
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  mask-image: linear-gradient(
+    to top, transparent, #000 40%
+  );
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  .wrapper {
+    position: relative;
+    transition: .5s cubic-bezier(.17,.67,.48,.89);
+    transform:
+      rotateY(calc(20deg * var(--x) - 10deg))
+      rotateX(calc(10deg * var(--y) * -1 + 5deg))
+    ;
+
+    .sprite {
+      position: relative;
+      width: 300px;
+      aspect-ratio: 1 / 1.45;
+      transition: inherit;
+
+      img {
+        object-fit: contain;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      &:not(.main) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &.leftEye {
+        $y: clamp(0, calc(var(--y) + .2), 1);
+
+        transform: translate3d(
+          calc(8px * var(--x) - 4px),
+          calc(4px * $y - 2px),
+          0
+        );
+      }
+  
+      &.rightEye {
+        $y: clamp(0, calc(var(--y) + .2), 1);
+
+        transform: translate3d(
+          calc(8px * var(--x) - 4px),
+          calc(4px * $y - 2px),
+          0
+        );
+      }
+    }
+  }
+}
