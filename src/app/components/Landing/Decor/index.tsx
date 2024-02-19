@@ -7,10 +7,11 @@ import type { CSSProperties } from 'react'
 
 // Hooks
 import { useGSAP } from '@gsap/react'
-import { useMouse } from '@uidotdev/usehooks';
+import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 
 export function Decor() {
   const [mouse, ref] = useMouse<HTMLDivElement>();
+  const windowSize = useWindowSize();
 
   useGSAP(() => {
     const q = gsap.utils.selector(ref.current)
@@ -50,8 +51,8 @@ export function Decor() {
     ref={ref}
     className={styles.decor}
     style={{
-      '--x': mouse.x / window.innerWidth,
-      '--y': mouse.y / window.innerHeight
+      '--x': mouse.x / (windowSize.width || 1),
+      '--y': mouse.y / (windowSize.height || 1)
     } as CSSProperties & {
       '--x': number, '--y': number,
     }}

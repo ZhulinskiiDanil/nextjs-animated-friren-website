@@ -7,13 +7,14 @@ import Image from 'next/image';
 
 // Hooks
 import { useGSAP } from '@gsap/react'
-import { useMouse } from '@uidotdev/usehooks';
+import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 import { CSSProperties, useRef, useState } from 'react';
 
 export function BackgroundIllustration() {
   const middleImage = useRef<null | HTMLDivElement>(null)
   const [middActive, setMiddActive] = useState(false)
   const [mouse, ref] = useMouse<HTMLDivElement>();
+  const windowSize = useWindowSize();
 
   useGSAP(() => {
     gsap.fromTo(middleImage.current, {
@@ -31,8 +32,8 @@ export function BackgroundIllustration() {
     ref={ref}
     className={styles.container}
     style={{
-      '--x': mouse.x / window.innerWidth,
-      '--y': mouse.y / window.innerHeight
+      '--x': mouse.x / (windowSize.width || 1),
+      '--y': mouse.y / (windowSize.height || 1)
     } as CSSProperties & {
       '--x': number, '--y': number,
     }}
