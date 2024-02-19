@@ -45,7 +45,7 @@ export function AnimeName() {
     gsap.fromTo(q('[data-title]'), {
       text: "",
     }, {
-      text: "Проваждающая в последний путь Фрирен",
+      text: "Провождающая в последний путь Фрирен",
       duration: 3.2,
       delay: 1.8
     })
@@ -75,6 +75,6 @@ export function AnimeName() {
         fill
       />
     </div>
-    <p data-title>Проваждающая в последний путь Фрирен</p>
+    <p data-title>Провождающая в последний путь Фрирен</p>
   </div>
 }
