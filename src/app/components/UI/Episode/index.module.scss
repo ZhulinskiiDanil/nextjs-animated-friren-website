@@ -1,3 +1,7 @@
+.link {
+  flex-shrink: 0;
+}
+
 .episode {
   z-index: 0;
   flex-shrink: 0;
@@ -5,13 +9,13 @@
   display: flex;
   align-items: center;
   border-radius: 1rem;
-  background: rgba(234, 187, 189, .5);
+  background: rgba(255, 255, 255, .1);
   overflow: hidden;
   transition: .15s ease;
   cursor: pointer;
 
   &:hover {
-    background: rgba(234, 187, 189, .6);
+    background: rgba(255, 255, 255, .15);
     transform: translate3d(0, 0, 2rem);
   }
 
@@ -41,14 +45,18 @@
     }
 
     .title {
-      color: #fff;
+      color: rgba(255, 255, 255, .5);
       font-size: 1.25rem;
       font-stretch: 150%;
       font-weight: 700;
+
+      [data-accent] {
+        color: #fff;
+      }
     }
 
     .description {
-      color: #ffdbe4;
+      color: #E2B893;
       font-size: .88rem;
       font-weight: 500;
     }
@@ -64,7 +72,7 @@
     .icon {
       width: 2rem;
       height: 2rem;
-      color: #FFDBE4;
+      color: rgba(255, 255, 255, .6);
       transition: .15s ease;
     }
   }

@@ -16,35 +16,43 @@ export function EpisodesList(
   const [episodes, setEpisodes] = useState<Episode[]>(() => [
     {
       id: 1,
-      title: 'Edisode #1 – Tada-tatam',
-      description: 'Edisode #1 – Tada-tatam',
-      imageURL: '/images/friren_bg.png',
+      href: 'https://jut.su/sousou-no-frieren/episode-1.html',
+      title: 'Конец приключений',
+      description: 'Конец приключений',
+      imageURL: 'https://gen.jut.su/uploads/preview/969/0/0/1_1696098545.jpg',
+      episode: 1,
       progress: 25,
       saved: false
     },
     {
       id: 2,
-      title: 'Edisode #2 – Tada-tatam',
-      description: 'Edisode #2 – Tada-tatam',
-      imageURL: '/images/fern_bg.png',
+      href: 'https://jut.su/sousou-no-frieren/episode-2.html',
+      title: 'Дело-то вовсе не в магии!',
+      description: 'Дело-то вовсе не в магии',
+      imageURL: 'https://gen.jut.su/uploads/preview/969/0/0/2_1696099752.jpg',
+      episode: 2,
       progress: 50,
       saved: false
     },
     {
       id: 3,
-      title: 'Edisode #3 – Tada-tatam',
-      description: 'Edisode #3 – Tada-tatam',
-      imageURL: '/images/bridge_bg.png',
+      href: 'https://jut.su/sousou-no-frieren/episode-3.html',
+      title: 'Магия для убийства',
+      description: 'Магия для убийства',
+      imageURL: 'https://gen.jut.su/uploads/preview/969/0/0/3_1696100154.jpg',
+      episode: 3,
       progress: 90,
       saved: false
     },
     {
       id: 4,
-      title: 'Edisode #4 – Tada-tatam',
-      description: 'Edisode #4 – Tada-tatam',
-      imageURL: '/images/friren_bg.png',
+      href: 'https://jut.su/sousou-no-frieren/episode-4.html',
+      title: 'Пристанище душ',
+      description: 'Пристанище душ',
+      imageURL: 'https://gen.jut.su/uploads/preview/969/0/0/4_1696101664.jpg',
+      episode: 4,
       progress: 100,
-      saved: true
+      saved: false
     }
   ])
 
@@ -82,7 +90,7 @@ export function EpisodesList(
     gsap.fromTo(titleText, {
       text: ""
     }, {
-      text: "Список серий",
+      text: "Episodes list",
       duration: 2,
       delay: 1
     })
@@ -107,7 +115,7 @@ export function EpisodesList(
     {...props}
   >
     <h3 data-title className={styles.title}>
-      <span>Список серий</span>
+      <span>Episodes list</span>
     </h3>
     <div className={styles.list}>
       {episodes.map(episode => (

@@ -1,0 +1,56 @@
+$one: max(8rem, calc(5vw + 1vh));
+
+.texts {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  mix-blend-mode: difference;
+  align-items: center;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent, #000, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000, transparent);
+  overflow: hidden;
+
+  .text {
+    $velocityX: calc($one * 8);
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    flex-shrink: 0;
+    font-weight: 800;
+    font-size: calc($one * 1.6);
+    letter-spacing: calc($one * .04);
+    font-stretch: 140%;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke-width: calc($one * .06);
+    transition: 3s cubic-bezier(.17,.67,.44,.87);
+
+    &:first-child {
+      transform: translate3d(
+        calc($velocityX * -1 * var(--x) + $velocityX / 2), 0, 0
+      );
+      -webkit-text-stroke-color: #E2B893;
+    }
+
+    &:last-child {
+      transform: translate3d(
+        calc($velocityX * var(--x) + $one * 2), 0, 0
+      );
+      -webkit-text-stroke-color: #fff;
+    }
+
+    [data-letter] {
+      position: relative;
+    }
+  }
+}

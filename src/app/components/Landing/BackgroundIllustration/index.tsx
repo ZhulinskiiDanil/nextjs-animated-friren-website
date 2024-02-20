@@ -47,7 +47,7 @@ export function BackgroundIllustration() {
           fill
         />
       </div>
-      <div
+      {/* <div
         ref={middleImage}
         className={styles.image}
         tabIndex={0}
@@ -59,7 +59,7 @@ export function BackgroundIllustration() {
           muted
           loop
         ></video>
-      </div>
+      </div> */}
       <div className={styles.image} tabIndex={0}>
         <Image
           src="/images/fern_bg.png"

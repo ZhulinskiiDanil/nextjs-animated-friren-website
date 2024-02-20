@@ -12,24 +12,6 @@ $one: calc(5vw + 1vh);
   overflow: hidden;
   background: #000;
 
-  // Shadow
-  &::after {
-    content: '';
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-      to top,
-      #3D2727,
-      transparent,
-      #3D2727
-    );
-  }
-
   .images {
     display: flex;
     position: absolute;
@@ -38,11 +20,6 @@ $one: calc(5vw + 1vh);
     transform: translate3d(-50%, 0, 0);
     width: 120%;
     height: 100%;
-
-    &:has(.image:hover) .image:not(:hover) {
-      filter: grayscale(100%) !important;
-      opacity: .25;
-    }
 
     .image {
       $movement: 8%;
@@ -54,13 +31,18 @@ $one: calc(5vw + 1vh);
       width: 100%;
       overflow: hidden;
       transform: skewX(-5deg);
-      top: calc($one * $y - $one * 2);
-      transition: 1s cubic-bezier(.17,.67,.52,.91);
+      transition: .3s cubic-bezier(.17,.67,.52,.91);
+      filter: grayscale(100%);
       cursor: pointer;
 
       &:focus {
         width: 200%;
+        filter: grayscale(0%);
         cursor: default;
+      }
+
+      &:hover {
+        filter: grayscale(0%);
       }
 
       img {
@@ -70,35 +52,19 @@ $one: calc(5vw + 1vh);
         -webkit-user-drag: none;
       }
 
-      .video {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
       &:first-child {
+        margin-right: -.2rem;
+        top: calc($one * $y - $one * 2);
+
         img {
           object-position: calc(30% - $image1X) center;
         }
       }
 
-      &:nth-child(2) {
-        z-index: 1;
-        flex-shrink: 0;
-        width: 0; // gsap set to 25%
-        box-shadow: 0 0 calc($one * 2) 0 rgba(0, 0, 0, .5);
-        border: calc($one * .05) solid #fff;
-
-        &:focus {
-          width: 50% !important;
-          transition: 2s ease;
-        }
-      }
-
       &:last-child {
+        margin-left: -.2rem;
+        top: calc($one * $y * -1 - $one);
+
         img {
           object-position: calc(75% - $image2X) center;
         }

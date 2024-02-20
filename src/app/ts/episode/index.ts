@@ -2,7 +2,9 @@ export type Episode = {
   id: number
   title: string
   description: string
-  progress: number
-  saved?: boolean
+  href: string
   imageURL: string | null
+  progress: number
+  episode: number
+  saved: boolean
 }

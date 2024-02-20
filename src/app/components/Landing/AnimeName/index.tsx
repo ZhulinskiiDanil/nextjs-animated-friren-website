@@ -11,6 +11,9 @@ import { useMouse, useWindowSize } from '@uidotdev/usehooks';
 // Components
 import Image from 'next/image'
 
+/**
+ * @deprecated
+ */
 export function AnimeName() {
   const [mouse, ref] = useMouse<HTMLDivElement>();
   const windowSize = useWindowSize();

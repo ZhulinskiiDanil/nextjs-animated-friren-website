@@ -3,63 +3,69 @@
   --y: .5;
 
   z-index: 2;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  mask-image: linear-gradient(
-    to top, transparent, #000 40%
-  );
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  position: relative;
+  perspective: 500px;
   pointer-events: none;
 
   .wrapper {
     position: relative;
-    transition: .5s cubic-bezier(.17,.67,.48,.89);
-    transform:
-      rotateY(calc(20deg * var(--x) - 10deg))
-      rotateX(calc(10deg * var(--y) * -1 + 5deg))
-    ;
+    transform-style: preserve-3d;
 
-    .sprite {
+    .content {
       position: relative;
-      width: 300px;
-      aspect-ratio: 1 / 1.45;
-      transition: inherit;
+      transition: .5s cubic-bezier(.17,.67,.48,.89);
+      mask-image: linear-gradient(to top, transparent, #000 40%);
+      -webkit-mask-image: linear-gradient(
+        to top, transparent, #000 20%
+      );
+      transform-origin: center bottom;
+      transform:
+        rotateY(calc(20deg * var(--x) - 10deg))
+        rotateX(calc(5deg * var(--y) * -1 + 2.5deg))
+        scale(calc(1 + .1 * var(--y) - .05))
+        translate3d(0, calc(15% * var(--y) - 7.5%), 0)
+      ;
+      filter: brightness(calc(90% + 10% * ((var(--x) + var(--y) * -1.5) /  2) - 5%));
 
-      img {
-        object-fit: contain;
-        user-select: none;
-        -webkit-user-drag: none;
-      }
+      .sprite {
+        position: relative;
+        width: 300px;
+        aspect-ratio: 1 / 1.45;
+        transition: inherit;
 
-      &:not(.main) {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-      }
+        img {
+          object-fit: contain;
+          user-select: none;
+          -webkit-user-drag: none;
+        }
 
-      &.leftEye {
-        $y: clamp(0, calc(var(--y) + .2), 1);
+        &:not(.main) {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
 
-        transform: translate3d(
-          calc(8px * var(--x) - 4px),
-          calc(4px * $y - 2px),
-          0
-        );
-      }
-  
-      &.rightEye {
-        $y: clamp(0, calc(var(--y) + .2), 1);
+        &.leftEye {
+          $y: clamp(0, calc(var(--y) + .2), 1);
 
-        transform: translate3d(
-          calc(8px * var(--x) - 4px),
-          calc(4px * $y - 2px),
-          0
-        );
+          transform: translate3d(
+            calc(8px * var(--x) - 4px),
+            calc(4px * $y - 2px),
+            0
+          );
+        }
+    
+        &.rightEye {
+          $y: clamp(0, calc(var(--y) + .2), 1);
+
+          transform: translate3d(
+            calc(8px * var(--x) - 4px),
+            calc(4px * $y - 2px),
+            0
+          );
+        }
       }
     }
   }

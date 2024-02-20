@@ -6,6 +6,7 @@ import type { Episode } from '@/app/ts/episode'
 import { HTMLAttributes, useState } from 'react'
 
 // Components
+import Link from 'next/link'
 import Image from 'next/image'
 import { AiOutlineLink, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
@@ -18,17 +19,23 @@ export function UIEpisode({
     className={clsx(styles.episode, className)}
     {...props}
   >
-    {data.imageURL && <div className={styles.image}>
-      <Image
-        src={data.imageURL}
-        alt={data.title}
-        fill
-      />
-    </div>}
+    {data.imageURL && (
+      <Link href={data.href} className={styles.link}>
+        <div className={styles.image}>
+          <Image
+            src={data.imageURL}
+            alt={data.title}
+            fill
+          />
+        </div>
+      </Link>
+    )}
     <div className={styles.data}>
-      <p className={styles.title}>
-        { data.title }
-      </p>
+      <Link href={data.href} className={styles.link}>
+        <p className={styles.title}>
+          <span data-accent>{ data.title }</span> #{ data.episode } Episode
+        </p>
+      </Link>
       <p className={styles.description}>
         { data.description }
       </p>
