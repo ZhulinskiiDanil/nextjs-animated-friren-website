@@ -1,10 +1,9 @@
-import styles from './index.module.scss'
-import type { CSSProperties } from 'react';
-
-// Hooks
 import { useMouse, useWindowSize } from '@uidotdev/usehooks';
-import { useGSAP } from '@gsap/react';
+
+import type { CSSProperties } from 'react';
 import gsap from 'gsap';
+import styles from './index.module.scss'
+import { useGSAP } from '@gsap/react';
 
 export function Texts({ text }: { text: string }) {
   const [mouse, ref] = useMouse<HTMLDivElement>();
@@ -25,8 +24,8 @@ export function Texts({ text }: { text: string }) {
           rotation: 'random(-90, 90)',
           scale: .25,
           opacity: 0,
-          duration: 1,
-          stagger: { amount: 3, from: 'center' }
+          duration: 3,
+          stagger: { amount: 2, from: 'random' }
         })
       })
     }

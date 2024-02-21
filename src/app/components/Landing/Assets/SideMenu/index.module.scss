@@ -1,7 +1,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  mix-blend-mode: difference;
+  mix-blend-mode: overlay;
   gap: 2rem;
 
   .item {

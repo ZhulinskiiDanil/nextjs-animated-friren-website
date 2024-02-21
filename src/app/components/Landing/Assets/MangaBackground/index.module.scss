@@ -1,0 +1,61 @@
+.bg {
+  --x: .5;
+  --y: .5;
+
+  z-index: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  transform: translate3d(
+    calc(-50% + 10% * var(--x) - 5%),
+    calc(-50% + 10% * var(--y) - 10%),
+    0
+  ) scale(1.1);
+  transition: 2s cubic-bezier(.17,.67,.48,.91);
+
+  .main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &:has(.path:hover) {
+      .path:not(:hover) {
+        opacity: .2 !important;
+      }
+    }
+
+    .path {
+      transition: 1s ease;
+      transform-origin: center center;
+      transition-property: filter, opacity, scale;
+
+      // First path
+      &[data-animate-1] {
+        // fill: green;
+      }
+
+      // Two path
+      &[data-animate-2] {
+        // fill: blue;
+      }
+
+      // Three path
+      &[data-animate-3] {
+        // fill: red;
+      }
+
+      &:hover {
+        scale: 1.05;
+        opacity: .8;
+        filter: grayscale(100%);
+      }
+    }
+  }
+}

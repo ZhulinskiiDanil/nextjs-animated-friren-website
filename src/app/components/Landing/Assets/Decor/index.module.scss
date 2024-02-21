@@ -30,47 +30,6 @@ $one: calc(5vw + 1vh);
     transition: 2s cubic-bezier(.17,.67,.52,.91);
   }
 
-  .triangles {
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-
-    .triangle {
-      position: absolute;
-
-      &::after,
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        border: 0 solid transparent;
-        transform: translate3d(-50%, 0, 0);
-        border-top-color: rgba(255, 255, 255, .8);
-      }
-
-      &::after {
-        border-width: 320px;
-        border-top-width: 180px;
-      }
-
-      &::before {
-        border-width: 420px;
-        border-top-width: 250px;
-      }
-
-      &:first-child {
-        left: 0;
-      }
-
-      &:last-child {
-        left: 100%;
-      }
-    }
-  }
-
   &[data-animation-ended~=true] .rectangles {
     &:first-child {
       opacity: var(--x) !important;

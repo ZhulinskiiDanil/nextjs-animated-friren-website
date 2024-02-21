@@ -28,10 +28,6 @@ export function Decor() {
       '--x': number, '--y': number,
     }}
   >
-    <div className={styles.triangles}>
-      <div className={styles.triangle}></div>
-      <div className={styles.triangle}></div>
-    </div>
     <div className={styles.cw}>
       {/* TODO: Add text */}
     </div>

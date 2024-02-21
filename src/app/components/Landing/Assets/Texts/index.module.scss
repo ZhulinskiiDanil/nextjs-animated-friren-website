@@ -1,7 +1,7 @@
 $one: max(8rem, calc(5vw + 1vh));
 
 .texts {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   left: 0;
   top: 0;
@@ -34,17 +34,18 @@ $one: max(8rem, calc(5vw + 1vh));
     color: transparent;
     -webkit-text-stroke-width: calc($one * .06);
     transition: 3s cubic-bezier(.17,.67,.44,.87);
+    will-change: filter, transform;
 
     &:first-child {
       transform: translate3d(
-        calc($velocityX * -1 * var(--x) + $velocityX / 2), 0, 0
+        calc($velocityX * var(--x) + $one * 2), 0, 0
       );
       -webkit-text-stroke-color: #E2B893;
     }
 
     &:last-child {
       transform: translate3d(
-        calc($velocityX * var(--x) + $one * 2), 0, 0
+        calc($velocityX * -1 * var(--x) + $velocityX / 2), 0, 0
       );
       -webkit-text-stroke-color: #fff;
     }

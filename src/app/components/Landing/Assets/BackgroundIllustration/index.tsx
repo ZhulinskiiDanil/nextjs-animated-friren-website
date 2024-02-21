@@ -1,15 +1,17 @@
 'use client';
+
+import { CSSProperties, useRef, useState } from 'react';
+import { useMouse, useWindowSize } from '@uidotdev/usehooks';
+
+import Image from 'next/image';
 import gsap from 'gsap';
 import styles from './index.module.scss'
-
-// Components
-import Image from 'next/image';
-
-// Hooks
 import { useGSAP } from '@gsap/react'
-import { useMouse, useWindowSize } from '@uidotdev/usehooks';
-import { CSSProperties, useRef, useState } from 'react';
 
+/**
+ * 
+ * @deprecated
+ */
 export function BackgroundIllustration() {
   const middleImage = useRef<null | HTMLDivElement>(null)
   const [middActive, setMiddActive] = useState(false)
